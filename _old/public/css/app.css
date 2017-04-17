@@ -1,0 +1,64 @@
+*{
+   padding: 0;
+   margin: 0;
+   /*width: 100%;
+   height: 100%;*/
+}
+
+header{
+   background-color: #04BAFF;
+   height: 200px;
+   /*opacity: 0.5;*/
+   float:left;
+}
+
+main{
+   display: flex;
+   justify-content: center;
+}
+
+body{
+   background-image: url('./assests/crayons.jpeg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   font-family: 'Homemade Apple', cursive;
+}
+
+.textLogo{
+   font-family: 'Fredericka the Great', cursive;
+   font-size: 150px;
+   z-index: 1;
+   color: #94005D;
+   padding: 0;
+   margin:0;
+
+}
+
+.textLogo2{
+   font-family: 'Homemade Apple', cursive;
+   font-size: 100px;
+   color: #94005D;
+   /*z-index: 2;
+   bottom: 850px;
+   left: 300px;*/
+}
+
+.imgLogo{
+   height: 200px;
+   width: 200px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:100px;
+   width:100%;
+   background:#04BAFF;
+   text-align: center;
+}
+
+/*#footer-content{
+   position: relative;
+   bottom: 0;
+}*/

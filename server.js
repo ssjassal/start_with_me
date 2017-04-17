@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var validator = require('validator');
 
-var port = 8080;
+var port = process.env.PORT || 3000;
+var mongoDBURI = process.env.MONGODB_URI 	|| 'mongodb://localhost:27017/swmDB'
 var usersController = require('./controllers/users.js');
 var tasksController = require('./controllers/tasks.js');
 
@@ -18,7 +19,7 @@ app.get('/', function(req, res){
 	res.render('index.ejs');
 });
 
-mongoose.connect('mongodb://localhost:27017/swmDB');
+mongoose.connect(mongoDBURI);
 
 mongoose.connection.once('open', function(){
 	console.log('connected to mongo');

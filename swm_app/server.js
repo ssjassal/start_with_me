@@ -2,15 +2,16 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+var validator = require('validator');
+
 var port = 8080;
-
-app.use(methodOverride('_method'));
-app.use(bodyParser.urlencoded({extended:false}));
-
 var usersController = require('./controllers/users.js');
-app.use('/users', usersController);
 var tasksController = require('./controllers/tasks.js');
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
+app.use('/users', usersController);
 app.use('/tasks', tasksController);
 
 app.get('/', function(req, res){

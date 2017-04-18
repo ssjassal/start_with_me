@@ -19,9 +19,15 @@
 			</nav>
 		</header>
 		<main>
-			<h2>Author Attributes:</h2>
+			<h2>User Information:</h2>
 			<form action="/users/<%=user._id%>?_method=PUT" method="post">
-				<input type="text" name="name" value="<%=user.name%>"/><br/>
+				<input type="text" name="userImg" placeholder="Image URL" value="<%=user.userImg%>"/><br>		
+				<input type="text" name="name" placeholder="First and Last Name" value="<%=user.name%>"/><br>
+				<input type="text" name="email" placeholder="Email" value="<%=user.email%>"/><br>
+				<input type="text" name="age" placeholder="Age" value="<%=user.age%>"/><br>
+				<input type="text" name="parent" placeholder="Parent or Guardian" value="<%=user.parent%>"/><br>
+				<input type="text" name="school" placeholder="Current School" value="<%=user.school%>"/><br>
+				<input type="text" name="location" placeholder="Location" value="<%=user.location%>"/><br>
 				<input type="submit" value="Update User"/>
 			</form>
 		</main>

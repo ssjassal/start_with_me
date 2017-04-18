@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 
 var taskSchema = mongoose.Schema({
-	title:String,
-	body:String
+	title:{type: String, required: true},
+	location: String,
+	points: Number,
+	description:String,
+	taskImg: String
 });
 
 var Task = mongoose.model('Task', taskSchema);

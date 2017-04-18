@@ -14,6 +14,7 @@ var userSchema = mongoose.Schema({
 	age: Number,
 	parent: String,
 	school: String,
+	userImg: String,
 	tasks: [Task.schema]
 });
 

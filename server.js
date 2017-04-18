@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var validator = require('validator');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 var mongoDBURI = process.env.MONGODB_URI 	|| 'mongodb://localhost:27017/swmDB'
 var usersController = require('./controllers/users.js');
 var tasksController = require('./controllers/tasks.js');

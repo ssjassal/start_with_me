@@ -6,60 +6,104 @@
 }
 
 header{
-   background-color: #04BAFF;
-   height: 200px;
+   background-color: white;
+   height: 30%;
    /*opacity: 0.5;*/
    float:left;
+   width: 100%;
+   margin-top: 0px;
+   opacity: 0.75;
 }
 
-main{
-   display: flex;
-   justify-content: center;
+nav{
+   margin-top: 0px;
+   /*display: flex;
+   justify-content: space-between;*/
+   display: inline-block;
+   float:left;
+   background-color: white;
+   width: 100%;
+   padding-top: 20px;
+   padding-right: 20px;
+   /*margin-right: 10px;*/
+   margin-left: 0;
+   opacity: 0.5;
+   font-weight: 400;
 }
 
 body{
-   /*background-image: url('../../public/img/crayons.jpeg');*/
-   /*background-repeat: no-repeat;
-   background-size: cover;*/
-   background-color: #04BAFF;
-   font-family: 'Homemade Apple', cursive;
+   background-repeat: repeat-x;
+   /*background-size: cover;*/
+   background-color: #E0DD1D;
+   font-family: 'Macondo', cursive;
+   /*width: 50%;*/
 }
 
-.textLogo{
-   font-family: 'Fredericka the Great', cursive;
-   font-size: 150px;
-   z-index: 1;
-   color: #94005D;
-   padding: 0;
-   margin:0;
-
+main{
+   display: inline-flex;
+   justify-content: center;
 }
 
-.textLogo2{
-   font-family: 'Homemade Apple', cursive;
-   font-size: 100px;
-   color: #94005D;
-   /*z-index: 2;
-   bottom: 850px;
-   left: 300px;*/
+ul{
+   /*display: inline-block;*/
+}
+li{
+   display: inline-block;
+   margin-left: 30px;
+   /*padding-left: 30px;*/
 }
 
-.imgLogo{
-   height: 200px;
-   width: 200px;
-}
-
-#footer {
+footer {
    position:fixed;
    left:0px;
    bottom:0px;
-   height:100px;
+   height:20%;
    width:100%;
-   background:#04BAFF;
+   background-image: url('/img/crayons.png');
    text-align: center;
 }
 
-/*#footer-content{
+.headerContent{
+   opacity: 0.75;
+}
+
+.picLogo{
+   width: 15%;
+   height: 15%;
+   padding: 0;
+   margin:0;
+   float: left;
+   z-index: 1;
+}
+
+.imgLogo{
    position: relative;
+}
+
+.pipe{
+   padding-left: 20px;
+   /*padding-right: 5px;*/
+}
+
+.navText{
+   float: right;
+}
+
+.menu{
+   background-color: #CB005C;
+   align-items: center;
+   display: flex;
+   justify-content: space-around;
+   width: 50%;
+   height: 50px;
+   z-index: 1;
+   margin-left: 25%;
+   margin-bottom: 15%;
+   position: absolute;
+   top: 150px;
+}
+
+#footer-content{
+   margin-bottom: 30px;
    bottom: 0;
-}*/
+}

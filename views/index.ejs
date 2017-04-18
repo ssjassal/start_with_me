@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-		crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Homemade+Apple" rel="stylesheet">
+		<% include ../partials/head %>
+		<script type="text/javascript" src="">
+
+		</script>
 	</head>
+	<header>
+		<img class="picLogo" src="/img/SWMLogo.png"></img>
+		<h1></h1>
+	</header>
 	<body>
-		<header>
-			<h1>Start With Me Homepage</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/users">Users</a>
-					</li>
-					<li>
-						<a href="/tasks">Tasks</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<div class="menu">
+				<a href="/">HOME</a> <span class="pipe">|</span>
+				<a href="/">TASKS</a> <span class="pipe">|</span>
+				<a href="/">RULES</a> <span class="pipe">|</span>
+				<a href="/">POINTS METER</a>
+		</div>
+		<img class="imgLogo" id="indexImg" src="http://www.dorchesterchildren.org/images/slideshow/group-of-children.jpg"></img>
+
 	</body>
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
 </html>

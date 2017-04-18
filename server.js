@@ -12,6 +12,7 @@ var tasksController = require('./controllers/tasks.js');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 app.use('/users', usersController);
 app.use('/tasks', tasksController);
 

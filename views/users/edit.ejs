@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title></title>
+		<% include ../../partials/head %>
 	</head>
 	<body>
 		<header>
@@ -21,7 +20,7 @@
 		<main>
 			<h2>User Information:</h2>
 			<form action="/users/<%=user._id%>?_method=PUT" method="post">
-				<input type="text" name="userImg" placeholder="Image URL" value="<%=user.userImg%>"/><br>		
+				<input type="text" name="userImg" placeholder="Image URL" value="<%=user.userImg%>"/><br>
 				<input type="text" name="name" placeholder="First and Last Name" value="<%=user.name%>"/><br>
 				<input type="text" name="email" placeholder="Email" value="<%=user.email%>"/><br>
 				<input type="text" name="age" placeholder="Age" value="<%=user.age%>"/><br>
@@ -32,4 +31,7 @@
 			</form>
 		</main>
 	</body>
+	<footer>
+		<% include ../../partials/footer %>
+	</footer>
 </html>

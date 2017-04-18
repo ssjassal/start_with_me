@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title></title>
+		<% include ../../partials/head %>
 	</head>
 	<body>
 		<header>
@@ -29,9 +28,12 @@
 				<textarea name="desc" placeholder="Task Description"></textarea><br/>
 				<input type="text" name="location" placeholder="Location"/><br>
 				<input type="text" name="points" placeholder="Points Value"/><br>
-				<input type="text" name="taskImg" placeholder="Image URL"/><br>			
+				<input type="text" name="taskImg" placeholder="Image URL"/><br>
 				<input type="submit" value="Publish Task"/>
 			</form>
 		</main>
 	</body>
+	<footer>
+		<% include ../../partials/footer %>
+	</footer>
 </html>

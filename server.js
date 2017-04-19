@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('express-session');
+var bcrypt = require('bcrypt');
 var validator = require('validator');
 
 var port = process.env.PORT || 8080;

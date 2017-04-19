@@ -44,6 +44,8 @@ main{
    justify-content: center;
 }
 
+
+
 ul{
    /*display: inline-block;*/
 }
@@ -78,6 +80,8 @@ footer {
 
 .imgLogo{
    position: relative;
+   display: flex;
+   justify-content: center;
 }
 
 .pipe{
@@ -100,9 +104,13 @@ footer {
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 150px;
+   top: 145px;
+   color: white;
 }
 
+.menuLinks{
+   color: white;
+}
 #footer-content{
    margin-bottom: 30px;
    bottom: 0;

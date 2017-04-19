@@ -2,12 +2,12 @@
   "name": "start_with_me",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "7.9.0"},
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "7.9.0"},
   "author": "",
   "license": "ISC",
   "dependencies": {

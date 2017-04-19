@@ -21,7 +21,7 @@ router.post('/', function(req, res){
           console.log(req.session.currentuser);
           res.redirect('/users/show');
        }else{
-          console.log("doomed")
+          console.log("doomed");
        }
     });
 });

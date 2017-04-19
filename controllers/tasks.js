@@ -17,7 +17,7 @@ router.get('/new', function(req, res){
     User.findById(req.session.currentuser, function(err, foundUser){
 		  console.log(req.session.currentuser);
         res.render('tasks/new.ejs', {
-            users: foundUser,
+            user: foundUser,
 				currentUser: req.session.currentuser
         });
     });
@@ -50,20 +50,33 @@ router.get('/:id/edit', function(req, res){
 	});
 });
 
+
 router.put('/:id', function(req, res){
-	Task.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, updatedTask){
-        console.log(req.body);
+    Task.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, updatedTask){
         User.findOne({ 'tasks._id' : req.params.id }, function(err, foundUser){
-            foundUser.tasks.id(req.params.id).remove();
-            foundUser.tasks.push(updatedTask);
-            foundUser.save(function(err, data){
-                res.redirect('/tasks');
-          });
-       });
-	});
+			if(foundUser._id.toString() !== req.body._id){
+				foundUser.tasks.id(req.params.id).remove();
+				foundUser.save(function(err, savedFoundUser){
+					User.findOne({ 'users._id' : req.body._id} , function(err, newUser){
+						newUser.tasks.push(updatedTask);
+						newUser.save(function(err, savedNewUser){
+			                res.redirect('/tasks/'+req.params.id);
+			            });
+					});
+	            });
+			} else {
+				foundUser.tasks.id(req.params.id).remove();
+	            foundUser.tasks.push(updatedTask);
+	            foundUser.save(function(err, data){
+	                res.redirect('/tasks/'+req.params.id);
+	            });
+			}
+        });
+    });
 });
 
 router.post('/', function(req, res){
+
     User.findOne({username: req.body.username}, function(err, foundUser){
         Task.create(req.body, function(err, createdTask){
             foundUser.tasks.push(createdTask);

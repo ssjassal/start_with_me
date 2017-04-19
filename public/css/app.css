@@ -77,7 +77,7 @@ footer {
 }
 
 .imgLogo{
-   position: absolute;
+   position: relative;
    display: flex;
    justify-content: center;
 }
@@ -101,7 +101,7 @@ footer {
    z-index: 1;
    margin-left: 25%;
    margin-bottom: 15%;
-   position: relative;
+   position: absolute;
    top: 140px;
    color: white;
 }
@@ -110,11 +110,24 @@ footer {
    color: white;
 }
 
+#volunteer{
+   height:500px;
+   width: 750px;
+}
+
 #indexSlide{
-   background-color: white;
-   height: 600px;
-   width: 800px;
-   /*position: relative;*/
+   background-color: #CB005C;
+   align-items: center;
+   display: flex;
+   justify-content: space-around;
+   width: 50%;
+   height: 550px;
+   /*z-index: 1;*/
+   margin-left: 25%;
+   margin-bottom: 15%;
+   position: absolute;
+   top: 540px;
+   color: white;
 }
 #footer-content{
    margin-bottom: 30px;

@@ -14,13 +14,6 @@ router.get('/', function(req, res){
 	})
 });
 
-router.post('/', function(req, res){
-	req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-	User.create(req.body, function(err, createdUser){
-		 res.redirect('/sessions/new');
-	});
-});
-
 router.get('/new', function(req, res){
 	res.render('users/new.ejs',{
 		currentUser: req.session.currentuser
@@ -33,6 +26,30 @@ router.get('/:id', function(req, res){
 			user: foundUser,
 			currentUser: req.session.currentuser
 		});
+	});
+});
+
+
+router.get('/:id/edit', function(req, res){
+	User.findById(req.params.id, function(err, foundUser){
+		res.render('users/edit.ejs', {
+			user: foundUser,
+			currentUser: req.session.currentuser
+		});
+	});
+});
+
+router.put('/:id', function(req, res){
+	User.findByIdAndUpdate(req.params.id, req.body, function(){
+		res.redirect('/users');
+	});
+});
+
+
+router.post('/', function(req, res){
+	req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+	User.create(req.body, function(err, createdUser){
+		 res.redirect('/sessions/new');
 	});
 });
 
@@ -54,20 +71,4 @@ router.delete('/:id', function(req, res){
 		);
 	});
 });
-
-router.get('/:id/edit', function(req, res){
-	User.findById(req.params.id, function(err, foundUser){
-		res.render('users/edit.ejs', {
-			user: foundUser,
-			currentUser: req.session.currentuser
-		});
-	});
-});
-
-router.put('/:id', function(req, res){
-	User.findByIdAndUpdate(req.params.id, req.body, function(){
-		res.redirect('/users');
-	});
-});
-
 module.exports = router;

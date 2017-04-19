@@ -103,6 +103,19 @@ footer {
    float: right;
 }
 
+.fontSize{
+   /*-moz-box-shadow: inset 0px 1px 0px 0px #04BAFF;
+   -webkit-box-shadow: inset 0px 1px 0px 0px #04BAFF;
+   box-shadow: inset 0px 1px 0px 0px #04BAFF;
+   background-color: #216288;
+   border: 1px solid #17445E;
+   display: inline-block;
+   cursor: pointer;
+   color: #FFFFFF;*/
+   /*padding: 8px 18px;*/
+   text-decoration: none;
+   font: 12px 'Macondo', cursive;
+}
 .menu{
    background-color: #CB005C;
    align-items: center;
@@ -135,6 +148,13 @@ footer {
    width: 100%;
    display: flex;
    opacity: 0.75;
+}
+
+.userProfile{
+   border-radius: 80px;
+   height:150px;
+   width: 150px;
+   border: 5px solid #04BAFF;
 }
 
 #volunteer{
@@ -174,6 +194,8 @@ footer {
 }
 
 #editUser{
+   display: flex;
+   justify-content: center;
    color: #737373
 }
 
@@ -185,7 +207,7 @@ footer {
     margin: 50px auto;
     box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
     border-radius: 10px;
-    border: 6px solid #305A72;
+    border: 6px solid #04BAFF;
 
 }
 .form-style-9 ul{
@@ -232,9 +254,9 @@ footer {
 }
 .form-style-9 ul li input[type="button"],
 .form-style-9 ul li input[type="submit"], {
-    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    box-shadow: inset 0px 1px 0px 0px #3985B1;
+    -moz-box-shadow: inset 0px 1px 0px 0px #04BAFF;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #04BAFF;
+    box-shadow: inset 0px 1px 0px 0px #04BAFF;
     background-color: #216288;
     border: 1px solid #17445E;
     display: inline-block;
@@ -242,7 +264,7 @@ footer {
     color: #FFFFFF;
     padding: 8px 18px;
     text-decoration: none;
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 12px 'Macondo', cursive;
 }
 .form-style-9 ul li input[type="button"]:hover,
 .form-style-9 ul li input[type="submit"]:hover {

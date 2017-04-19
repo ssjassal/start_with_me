@@ -5,28 +5,29 @@
 	</head>
 	<body>
 		<header>
-			<h1>Tasks</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/tasks/new">Create a new Task</a>
-					</li>
-				</ul>
-			</nav>
+			<div class="subheader">
+				<h1>List of Volunteer Activiites</h1>
+			</div>
+			<div class="menu">
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+					<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+					<a class="menuLinks"href="/">POINTS METER</a>
+			</div>
 		</header>
 		<main>
-			<h2>List of Tasks</h2>
-			<ul>
-				<% for(var i = 0; i < tasks.length; i++){ %>
-					<li>
-						<a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
-						By:<%=tasks[i].username%>	
-					</li>
-				<% } %>
-			</ul>
+			<div class="form-style-9">
+				<ul>
+					<h2>Current Activites</h2>
+					<% for(var i = 0; i < tasks.length; i++){ %>
+						<li>
+							<a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
+							By: <%=tasks[i].username%>
+						</li>
+					<% } %>
+					<li><button><a class="fontSize" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
+				</ul>
+			</div>
 		</main>
 	</body>
 	<footer>

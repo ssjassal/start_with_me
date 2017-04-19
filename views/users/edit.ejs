@@ -17,7 +17,6 @@
 	<body>
 
 		<main>
-			<h2>User Information:</h2>
 			<form class="form-style-9" action="/users/<%=user._id%>?_method=PUT" method="post">
 				<h2> Edit My Profile:</h2>
 				<ul>
@@ -28,7 +27,7 @@
 					<li><input class="field-style field-full align-none" type="text" name="school" placeholder="Current School" value="<%=user.school%>"/></li>
 					<li><input class="field-style field-full align-none" type="text" name="location" placeholder="Location" value="<%=user.location%>"/></li>
 					<li><input class="field-style field-full align-none" type="text" name="userImg" placeholder="Image URL" value="<%=user.userImg%>"/></li>
-					<li><input type="submit" value="Update User"/></li>
+					<li><input class="createUser" type="submit" value="UPDATE USER"/></li>
 				</ul>
 			</form>
 		</main>

@@ -17,27 +17,29 @@
 	<body>
 		<main class="form-style-9">
 			<section>
-				<h2>My Profile:</h2>
-				<img src="<%=currentUser.userImg%>"/></img><br>
-				<ul>
-					<li>Name: <%=currentUser.name%></li>
-				</ul>
+			<li><img class="userProfile"src="<%=currentUser.userImg%>"></img></li>
 			</section>
 			<section>
-				<h2>Tasks Entered By: <%=currentUser.name%></h2>
+				<h2>Volunteer Activites Entered By: <%=currentUser.name%></h2>
 				<ul>
 					<% for(var i = 0; i < currentUser.tasks.length; i++){ %>
 						<li><a href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></li>
 					<% } %>
 				</ul>
 			</section>
-            <section>
+         <section>
 				<form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
 					<ul >
-						<li><input type="submit" value="Delete User"/>
-						<button><a id="editUser" href="/users/<%=currentUser._id%>/edit">Edit</a></button></li>
+						<li><input class="createUser" type="submit" value="DELETE USER"/>
 					</ul>
 				</form>
+				<ul id="editUser">
+					<button>
+						<li><a class="fontSize" id="editUser" href="/users/<%=currentUser._id%>/edit">EDIT USER</a>
+					</button></li>
+				</ul><ul id="editUser">
+					<li><button><a class="fontSize" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
+				</ul>
 			</section>
 		</main>
 	</body>

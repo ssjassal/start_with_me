@@ -5,27 +5,28 @@
 	</head>
 	<body>
 		<header>
-			<h1>Create an Task</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/tasks">Tasks Index</a>
-					</li>
-				</ul>
-			</nav>
+			<div class="subheader">
+				<h1>Create New Activity</h1>
+				<div class="menu">
+						<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+						<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+						<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+						<a class="menuLinks"href="/">POINTS METER</a>
+				</div>
+			</div>
 		</header>
 		<main>
-			<form action="/tasks" method="POST">
-				<input type="text" name="username" value="<%=users.username%>"/><br>
-				<input type="text" name="title" placeholder="Task Title"/><br>
-				<textarea name="description" placeholder="Task Description"></textarea><br/>
-				<input type="text" name="location" placeholder="Location"/><br>
-				<input type="text" name="points" placeholder="Points Value"/><br>
-				<input type="text" name="taskImg" placeholder="Image URL"/><br>
-				<input type="submit" value="Publish Task"/>
+			<form class="form-style-9" action="/tasks" method="POST">
+				<h2>New Activity Information:</h2>
+				<ul>
+					<li><input class="field-style field-split align-left" type="text" name="username" value="<%=users.username%>"/>
+					<input class="field-style field-split align-right"  type="text" name="title" placeholder="Activity Title"/></li>
+					<li><textarea class="field-style" name="description" placeholder="Task Description"></textarea></li>
+					<li><input class="field-style field-full align-none" type="text" name="location" placeholder="Location"/></li>
+					<li><input class="field-style field-full align-none" type="text" name="points" placeholder="Points Value"/></li>
+					<li><input class="field-style field-full align-none" type="text" name="taskImg" placeholder="Image URL"/></li>
+					<li id="createUser"><input type="submit" value="CREATE ACTIVITY"/></li>
+			</ul>
 			</form>
 		</main>
 	</body>

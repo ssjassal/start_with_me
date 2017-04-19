@@ -14,15 +14,16 @@ var sessionsController = require('./controllers/sessions.js');
 var usersController = require('./controllers/users.js');
 var tasksController = require('./controllers/tasks.js');
 
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(session({
     secret: "lovelinus", //some random string
     resave: false,
     saveUninitialized: false
 }));
-app.use('/sessions', sessionsController);
-app.use(methodOverride('_method'));
 app.use(express.static('public'));
+
+app.use('/sessions', sessionsController);
 app.use('/users', usersController);
 app.use('/tasks', tasksController);
 

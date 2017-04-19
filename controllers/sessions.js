@@ -12,21 +12,22 @@ router.get('/new', function(req, res){
 
 router.post('/', function(req, res){
     User.findOne({ username: req.body.username }, function(err, foundUser){
-        console.log(req.body.username + '+' + req.body.password + '+' + foundUser + '+' + req.session.currentuser);
+        console.log(req.body.username + '+' + req.body.password + '+' + foundUser + '+');
         if( bcrypt.compareSync(req.body.password, foundUser.password) ){
            console.log('in IF');
             req.session.currentuser = foundUser;
+            console.log(req.session.currentuser);
             res.redirect('/users/show');
         } else {
-            res.send('wrong password');
+            res.redirect('/users/new');
         }
     });
 });
 
 router.delete('/', function(req, res){
-    req.session.destroy(function(){
-        res.redirect('/');
-    });
-})
+    console.log('In Logout Route');
+    req.session.destroy();
+      res.redirect('/');
+});
 
 module.exports = router;

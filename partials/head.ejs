@@ -25,13 +25,23 @@
          <li>
             <a href="/">ABOUT US</a> <span class="pipe">|</span>
          </li>
-         <li>
+         <% if(currentUser === undefined){%>
+            <li>
+                <a href="/sessions/new">LOGIN</a> <span class="pipe">|</span>
+            </li>
+            <li>
+                <a href="/users/new">REGISTER</a>
+            </li>
+         <%}%>
 
-            <a href="/sessions/new">LOGIN</a> <span class="pipe">|</span>
-         </li>
-         <li>
+        <% if(currentUser){ %>
+            <li><a href="/users/<%=currentUser._id%>">MY ACCOUNT</a></li>
+            <li>
+                <form action="/sessions?_method=DELETE" method="POST">
+                    <input type="submit" value="LOGOUT">
+                </form>
+            </li>
 
-            <a href="/users/new">REGISTER</a>
-         </li>
+         <% } %>
       </ul>
    </nav>

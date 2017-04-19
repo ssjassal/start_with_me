@@ -23,17 +23,6 @@ router.get('/new', function(req, res){
     });
 });
 
-router.post('/', function(req, res){
-    User.findOne({username: req.body.username}, function(err, foundUser){
-        Task.create(req.body, function(err, createdTask){
-            foundUser.tasks.push(createdTask);
-            foundUser.save(function(err, data){
-                res.redirect('/tasks');
-            });
-        });
-    });
-});
-
 router.get('/:id', function(req, res){
     Task.findById(req.params.id, function(err, foundTask){
         User.findOne({'tasks._id':req.params.id}, function(err, foundUser){
@@ -43,17 +32,6 @@ router.get('/:id', function(req, res){
 					 currentUser: req.session.currentuser
             });
         })
-    });
-});
-
-router.delete('/:id', function(req, res){
-    Task.findByIdAndRemove(req.params.id, function(err, foundTask){
-        User.findOne({'tasks._id':req.params.id}, function(err, foundUser){
-            foundUser.tasks.id(req.params.id).remove();
-            foundUser.save(function(err, data){
-                res.redirect('/tasks');
-            });
-        });
     });
 });
 
@@ -73,25 +51,36 @@ router.get('/:id/edit', function(req, res){
 });
 
 router.put('/:id', function(req, res){
-    Task.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, updatedTask){
+	Task.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, updatedTask){
+        console.log(req.body);
         User.findOne({ 'tasks._id' : req.params.id }, function(err, foundUser){
-			if(foundUser._id.toString() !== req.body.userId){
-				foundUser.tasks.id(req.params.id).remove();
-				foundUser.save(function(err, savedFoundUser){
-					User.findById(req.body.userId, function(err, newUser){
-						newUser.tasks.push(updatedTask);
-						newUser.save(function(err, savedNewUser){
-			                res.redirect('/tasks/'+req.params.id);
-			            });
-					});
-	            });
-			} else {
-				foundUser.tasks.id(req.params.id).remove();
-	            foundUser.tasks.push(updatedTask);
-	            foundUser.save(function(err, data){
-	                res.redirect('/tasks/'+req.params.id);
-	            });
-			}
+            foundUser.tasks.id(req.params.id).remove();
+            foundUser.tasks.push(updatedTask);
+            foundUser.save(function(err, data){
+                res.redirect('/tasks');
+          });
+       });
+	});
+});
+
+router.post('/', function(req, res){
+    User.findOne({username: req.body.username}, function(err, foundUser){
+        Task.create(req.body, function(err, createdTask){
+            foundUser.tasks.push(createdTask);
+            foundUser.save(function(err, data){
+                res.redirect('/tasks');
+            });
+        });
+    });
+});
+
+router.delete('/:id', function(req, res){
+    Task.findByIdAndRemove(req.params.id, function(err, foundTask){
+        User.findOne({'tasks._id':req.params.id}, function(err, foundUser){
+            foundUser.tasks.id(req.params.id).remove();
+            foundUser.save(function(err, data){
+                res.redirect('/tasks');
+            });
         });
     });
 });

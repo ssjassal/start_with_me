@@ -17,22 +17,10 @@
 				</ul>
 			</nav>
 		</header>
-		<main>
+		<main class="form-style-9">
 			<h2>Task Attributes:</h2>
 			<form action="/tasks/<%=task._id%>?_method=PUT" method="post">
-				<select name="userId">
-                 <% for(var i = 0; i < users.length; i++) { %>
-                     <option
-						value="<%=users[i]._id%>"
-						<% if(users[i]._id.toString() === taskUser._id.toString()){ %>
-							selected
-						<% } %>
-						>
-						<%=users[i].name%>
-					</option>
-                 <% } %>
-            </select><br/>
-
+				<input type="text" name="title" placeholder="Task Title" value="<%=currentUser.username%>"/><br>
 				<input type="text" name="title" placeholder="Task Title" value="<%=task.title%>"/><br>
 				<textarea name="desc" placeholder="Task Description"><%=task.desc%></textarea><br/>
 				<input type="text" name="location" placeholder="Location" value="<%=task.location%>"/><br>

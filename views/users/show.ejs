@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Show Page for <%=user.name%></h1>
+			<h1>Profile for <%=currentUser.name%></h1>
 			<nav>
 				<ul>
 					<li>
@@ -20,24 +20,24 @@
 		<main>
 			<section>
 				<h2>User Attributes:</h2>
-				<img src="<%=user.userImg%>"/></img><br>
+				<img src="<%=currentUser.userImg%>"/></img><br>
 				<ul>
-					<li>Name: <%=user.name%></li>
+					<li>Name: <%=currentUser.name%></li>
 				</ul>
 			</section>
 			<section>
 				<h2>Tasks Entered By This User:</h2>
 				<ul>
-					<% for(var i = 0; i < user.tasks.length; i++){ %>
-						<li><a href="/tasks/<%=user.tasks[i]._id%>"><%=user.tasks[i].title%></a></li>
+					<% for(var i = 0; i < currentUser.tasks.length; i++){ %>
+						<li><a href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></li>
 					<% } %>
 				</ul>
 			</section>
 			<section>
-				<a href="/users/<%=user._id%>/edit">Edit</a>
+				<a href="/users/<%=currentUser._id%>/edit">Edit</a>
 			</section>
             <section>
-				<form action="/users/<%=user._id%>?_method=DELETE" method="post">
+				<form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
 					<input type="submit" value="Delete User"/>
 				</form>
 			</section>

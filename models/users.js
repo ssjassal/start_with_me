@@ -15,9 +15,11 @@ var userSchema = mongoose.Schema({
 	parent: String,
 	school: String,
 	userImg: String,
+	username: String,
+	password: String,
 	tasks: [Task.schema]
 });
 
-var User = mongoose.model('Author', userSchema);
+var User = mongoose.model('User', userSchema);
 
 module.exports = User;

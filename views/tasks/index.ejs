@@ -23,6 +23,7 @@
 				<% for(var i = 0; i < tasks.length; i++){ %>
 					<li>
 						<a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
+						By:<%=tasks[i].username%>	
 					</li>
 				<% } %>
 			</ul>

@@ -1,26 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var Task = require('../models/tasks.js');
-var User = require('../models/users.js')
+var User = require('../models/users.js');
+var session = require('express-session');
 
 router.get('/', function(req, res){
 	Task.find({}, function(err, foundTasks){
 		res.render('tasks/index.ejs', {
-			tasks: foundTasks
+			tasks: foundTasks,
+			currentUser: req.session.currentuser
 		});
 	})
 });
 
 router.get('/new', function(req, res){
-    User.find({}, function(err, allUsers){
+    User.findById(req.session.currentuser, function(err, foundUser){
+		  console.log(req.session.currentuser);
         res.render('tasks/new.ejs', {
-            users: allUsers
+            users: foundUser,
+				currentUser: req.session.currentuser
         });
     });
 });
 
 router.post('/', function(req, res){
-    User.findById(req.body.userId, function(err, foundUser){
+    User.findOne({username: req.body.username}, function(err, foundUser){
         Task.create(req.body, function(err, createdTask){
             foundUser.tasks.push(createdTask);
             foundUser.save(function(err, data){
@@ -34,8 +38,9 @@ router.get('/:id', function(req, res){
     Task.findById(req.params.id, function(err, foundTask){
         User.findOne({'tasks._id':req.params.id}, function(err, foundUser){
             res.render('tasks/show.ejs', {
-                user:foundUser,
-                task: foundTask
+                user: foundUser,
+                task: foundTask,
+					 currentUser: req.session.currentuser
             });
         })
     });
@@ -59,7 +64,8 @@ router.get('/:id/edit', function(req, res){
 				res.render('tasks/edit.ejs', {
 					task: foundTask,
 					users: allUsers,
-					taskUser: foundTaskUser
+					taskUser: foundTaskUser,
+					currentUser: req.session.currentuser
 				});
 			});
 		});

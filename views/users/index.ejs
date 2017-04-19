@@ -3,32 +3,31 @@
 	<head>
 		<% include ../../partials/head %>
 	</head>
+	<header>
+		<h1>Users</h1>
+		<div class="menu">
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+				<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+				<a class="menuLinks"href="/">POINTS METER</a>
+		</div>
+	</header>
 	<body>
-		<header>
-			<h1>Users</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/users/new">Create a new User</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<br>
 		<main>
-			<h2>List of Users</h2>
-			<ul>
-				<% for(var i = 0; i < users.length; i++){ %>
-					<li>
-						<a href="/users/<%=users[i]._id%>"><%=users[i].name%></a>
-					</li>
-				<% } %>
-			</ul>
+			<div class="form-style-9">
+				<h2><legend>List of Users</legend></h2>
+				<ul class="userIndex">
+					<% for(var i = 0; i < users.length; i++){ %>
+						<li>
+							<a href="/users/<%=users[i]._id%>"><%=users[i].name%></a>
+						</li>
+					<% } %>
+				</ul>
+			</div>
 		</main>
 	</body>
 	<footer>
-		<% include ../../partials/head %>
+		<% include ../../partials/footer %>
 	</footer>
 </html>

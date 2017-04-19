@@ -63,9 +63,10 @@ li{
 footer {
    left:0px;
    bottom:0px;
-   height:20%;
+   height:15%;
    width:100%;
    background-image: url('/img/crayons.png');
+   background-size: 400px 200px;
    text-align: center;
    position: fixed;
 }

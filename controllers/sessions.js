@@ -13,14 +13,16 @@ router.get('/new', function(req, res){
 router.post('/', function(req, res){
     User.findOne({ username: req.body.username }, function(err, foundUser){
         console.log(req.body.username + '+' + req.body.password + '+' + foundUser + '+');
-        if( bcrypt.compareSync(req.body.password, foundUser.password) ){
-           console.log('in IF');
-            req.session.currentuser = foundUser;
-            console.log(req.session.currentuser);
-            res.redirect('/users/show');
-        } else {
-            res.redirect('/users/new');
-        }
+        if (!foundUser){
+           res.redirect('/users/new');
+        } else if ( bcrypt.compareSync(req.body.password, foundUser.password) ){
+          console.log('in IF');
+          req.session.currentuser = foundUser;
+          console.log(req.session.currentuser);
+          res.redirect('/users/show');
+       }else{
+          console.log("doomed")
+       }
     });
 });
 

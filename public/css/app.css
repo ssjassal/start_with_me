@@ -44,8 +44,6 @@ main{
    justify-content: center;
 }
 
-
-
 ul{
    /*display: inline-block;*/
 }
@@ -56,13 +54,13 @@ li{
 }
 
 footer {
-   position:fixed;
    left:0px;
    bottom:0px;
    height:20%;
    width:100%;
    background-image: url('/img/crayons.png');
    text-align: center;
+   position: fixed;
 }
 
 .headerContent{
@@ -79,7 +77,7 @@ footer {
 }
 
 .imgLogo{
-   position: relative;
+   position: absolute;
    display: flex;
    justify-content: center;
 }
@@ -103,7 +101,7 @@ footer {
    z-index: 1;
    margin-left: 25%;
    margin-bottom: 15%;
-   position: absolute;
+   position: relative;
    top: 140px;
    color: white;
 }
@@ -111,7 +109,18 @@ footer {
 .menuLinks{
    color: white;
 }
+
+#indexSlide{
+   background-color: white;
+   height: 600px;
+   width: 800px;
+   /*position: relative;*/
+}
 #footer-content{
    margin-bottom: 30px;
    bottom: 0;
+}
+
+#indexImage{
+   align-items: center;
 }

@@ -128,7 +128,7 @@ footer {
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 125px;
+   top: 150px;
    color: white;
    border-radius: 10px;
 }
@@ -172,11 +172,11 @@ footer {
    justify-content: space-around;
    width: 50%;
    height: 550px;
-   /*z-index: 3;*/
+   z-index: 3;
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 540px;
+   top: 440px;
    color: white;
    border-radius: 10px;
 }

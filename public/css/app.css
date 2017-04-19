@@ -56,6 +56,7 @@ ul{
 li{
    display: inline-block;
    margin-left: 30px;
+   list-style: none;
    /*padding-left: 30px;*/
 }
 
@@ -69,6 +70,10 @@ footer {
    position: fixed;
 }
 
+.newForm{
+   display: flex;
+   flex-wrap: column wrap;
+}
 .headerContent{
    opacity: 0.75;
 }
@@ -163,6 +168,15 @@ footer {
    align-items: center;
 }
 
+#createUser{
+   display: flex;
+   justify-content: center;
+}
+
+#editUser{
+   color: #737373
+}
+
 /*Form Style from https://www.sanwebe.com/2014/08/css-html-forms-designs*/
 .form-style-9{
     max-width: 450px;
@@ -217,7 +231,7 @@ footer {
     height: 100px;
 }
 .form-style-9 ul li input[type="button"],
-.form-style-9 ul li input[type="submit"] {
+.form-style-9 ul li input[type="submit"], {
     -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
     -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
     box-shadow: inset 0px 1px 0px 0px #3985B1;

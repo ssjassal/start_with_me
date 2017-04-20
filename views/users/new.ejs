@@ -5,28 +5,29 @@
 	</head>
 	<header>
 		<div class="subheader">
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
 			<h1>Register New Member</h1>
-			<div class="menuPage">
-				<% if(currentUser === undefined){%>
-					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">DONATE</a>
-				<%}%>
-
-				<% if(currentUser){ %>
-					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/">POINTS METER</a>
-				<% } %>
-			</div>
 		</div>
 	</header>
 	<body>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+			<% } %>
+		</div>
 		<main>
 			<div>
-				<form class="form-style-9" action="/users" method="post">
+				<form class="form-style-9" action="/users" method="POST">
 					<h2> Registration Form </h2>
 					<ul>
 						<li><input class="field-style field-split align-left" type="text" name="name" placeholder="First and Last Name"/>

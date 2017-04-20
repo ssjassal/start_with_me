@@ -8,28 +8,31 @@
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
 			<h1><%=task.title%></h1>
 			<small id="byLine">Sponsored By: <a href="/users/<%=currentUser._id%>"><%=currentUser.name%></a></small>
-			<div class="menuPage2">
-				<% if(currentUser === undefined){%>
-					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">DONATE</a>
-				<%}%>
-
-				<% if(currentUser){ %>
-					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/">POINTS METER</a>
-					 </form>
-				<% } %>
-			</div>
 	</header>
 	<body>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+				 </form>
+			<% } %>
+		</div>
 		<main>
 			<div class="form-style-9">
-				<li><img class="taskProfile" src="<%=task.taskImg%>"></img></li>
-				<li><font size="6"><%=task.description%></font></li>
+				<% if(currentUser === undefined){ %>
+					<li><img class="taskProfile" src="<%=task.taskImg%>"></img></li>
+					<li><font size="3"><%=task.description%></font></li>
+
+
 				<section>
 			    	<li id="createUser">
 						<form action="/tasks/<%=task._id%>?_method=DELETE" method="post">

@@ -3,20 +3,28 @@
 	<head>
 		<% include ../../partials/head %>
 	</head>
-	<body>
-		<header>
+	<header>
+		<div class="subheader">
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
 			<h1>Edit <%=task.title%>'s Info</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/tasks">Tasks Index</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		</div>
+	</header>
+	<body>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+			<% } %>
+		</div>
 		<main class="form-style-9">
 			<h2>Task Attributes:</h2>
 			<form action="/tasks/<%=task._id%>?_method=PUT" method="post">
@@ -26,13 +34,13 @@
 					<li><input class="field-style field-split align-left"  type="text" name="points" placeholder="Points Value" value="<%=task.points%>"/>
 					<input class="field-style field-split align-right" type="text" name="location" placeholder="Location" value="<%=task.location%>"/></li>
 					<li><input class="field-style field-full align-none"  type="text" name="taskImg" placeholder="Image URL" value="<%=task.taskImg%>"/></li>
-					<li><textarea class="field-style" name="desc" placeholder="Task Description"><%=task.desc%></textarea><li>
-					<li><input type="submit" value="UPDATE ACTIVITY"/></li>
+					<li><textarea class="field-style" name="desc" placeholder="Task Description"><%=task.description%></textarea><li>
+					<li id="createUser"><input type="submit" value="UPDATE ACTIVITY"/></li>
 				<ul>
 			</form>
 		</main>
 	</body>
 	<footer>
-		<% include ../../partials/head %>
+		<% include ../../partials/footer %>
 	</footer>
 </html>

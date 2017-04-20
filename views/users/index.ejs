@@ -7,34 +7,33 @@
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
 			<h1>Start With Me Members</h1>
-			<div class="menuPage2">
-				<% if(currentUser === undefined){%>
-					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">POINTS METER</a>
-				<%}%>
-
-				<% if(currentUser){ %>
-					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/">POINTS METER</a>
-				<% } %>
-			</div>
 	</header>
 	<body>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">POINTS METER</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/points">POINTS METER</a>
+			<% } %>
+		</div>
 		<main>
-			<div class="form-style-9">
-				<h2>List of Users</h2>
+			<div>
+				<h2 class="form-style-9">List of Users</h2>
 				<ul class="userIndex">
 					<% for(var i = 0; i < users.length; i++){ %>
-						<div class="form-style-4 userCenter">
-
-								<img class="userProfile2" src="<%=users[i].userImg%>	"></img>
-								<h2><a href="/users/<%=users[i]._id%>"><%=users[i].name%></a></h2>
-							
-						</div>
+						<ul>
+						<li class=" userCenter form-style-9 form-style-4" >
+							<img class="userProfile2" src="<%=users[i].userImg%>	"></img>
+							<h2><a href="/users/<%=users[i]._id%>"><%=users[i].name%></a></h2>
+						</li></ul>
 					<% } %>
 				</ul>
 			</div>

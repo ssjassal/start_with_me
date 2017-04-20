@@ -3,18 +3,28 @@
 	<head>
 		<% include ../../partials/head %>
 	</head>
+	<header>
+		<div class="subheader">
+			<h1>Create New Activity</h1>
+		</div>
+	</header>
 	<body>
-		<header>
-			<div class="subheader">
-				<h1>Create New Activity</h1>
-				<div class="menu">
-						<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-						<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-						<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-						<a class="menuLinks"href="/">POINTS METER</a>
-				</div>
-			</div>
-		</header>
+		<div class="menuPage4">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+				 </form>
+			<% } %>
+		</div>
 		<main>
 			<form class="form-style-9" action="/tasks" method="POST">
 				<h2>New Activity Information:</h2>

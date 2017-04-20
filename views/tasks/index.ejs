@@ -3,40 +3,43 @@
 	<head>
 		<% include ../../partials/head %>
 	</head>
+	<header>
+		<div class="subheader">
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
+			<h1>List of Volunteer Activiites</h1>
+		</div>
+	</header>
 	<body>
-		<header>
-			<div class="subheader">
-				<img class="picLogo2" src="/img/SWMLogo.png"></img>
-				<h1>List of Volunteer Activiites</h1>
-				<div class="menuPage2">
-					<% if(currentUser === undefined){%>
-						<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-						<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-						<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-						<a class="menuLinks" href="/">DONATE</a>
-					<%}%>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
 
-					<% if(currentUser){ %>
-						 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-						 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-						 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-						 <a class="menuLinks"href="/">POINTS METER</a>
-						 </form>
-					<% } %>
-				</div>
-			</div>
-		</header>
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+				 </form>
+			<% } %>
+		</div>
 		<main>
-			<div class="form-style-9">
-				<ul>
-					<h2>Current Activites</h2>
+			<div>
+				<div  class="form-style-9">
+				<h2>List of Sponsored Activities</h2>
+				<li id="createUser"><button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
+				</div>
+				<ul class="userIndex">
 					<% for(var i = 0; i < tasks.length; i++){ %>
-						<li>
-							<h3><a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
-							By: <%=tasks[i].username%> </h3>
-						</li>
+						<ul>
+						<li class=" userCenter form-style-9 form-style-4" >
+							<img class="userProfile2" src="<%=tasks[i].taskImg%>	"></img>
+							<h2><a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a></h2>
+						</li></ul>
 					<% } %>
-					<li><button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
 				</ul>
 			</div>
 		</main>

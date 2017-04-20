@@ -6,53 +6,71 @@
 	<header>
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
-			<h1>Profile for <%=currentUser.name%></h1>
-			<div class="menuPage2">
-				<% if(currentUser === undefined){%>
-					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-					<a class="menuLinks" href="/">DONATE</a>
-				<%}%>
-
-				<% if(currentUser){ %>
-					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					 <a class="menuLinks"href="/">POINTS METER</a>
-					 </form>
-				<% } %>
-			</div>
+			<h1>Member Profile</h1>
 		</div>
 	</header>
 	<body>
+		<div class="menuPage2">
+			<% if(currentUser === undefined){%>
+				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users/points">POINTS METER</a>
+				 </form>
+			<% } %>
+		</div>
 		<main class="form-style-9">
 			<section>
-			<li><img class="userProfile" src="<%=currentUser.userImg%>"></img></li>
+			   <div class="userPic">
+				 <li><img class="userProfile" src="<%=user.userImg%>"></img></li>
+			   </div>
+			   <h2>Member Information:</h2>
+			   <ul><h5><li>Name: <%=user.name%></li>
+			   <li>Email: <%=user.email%></li>
+			   <li>Parent or Guardian: <%=user.parent%></li>
+			   <li>Age: <%=user.age%></li>
+			   <li>School: <%=user.school%></li>
+			   <li>Location: <%=user.location%></li></h5></ul>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+				  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+				    50% Complete
+			  </div>
+</div>
 			</section>
-			<section>
-				<h2>Volunteer Activites Sponsored By: <%=currentUser.name%></h2>
-				<ul>
-					<% for(var i = 0; i < currentUser.tasks.length; i++){ %>
-						<li><h3><a href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></h3></li>
-					<% } %>
+		   <section>
+			   <h2>Volunteer Activites Sponsored By: <%=user.name%></h2>
+			   <ul>
+				   <% for(var i = 0; i < currentUser.tasks.length; i++){ %>
+					  <li><h3><a  href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></h3></li>
+						  <li>
+  					<% } %>
 				</ul>
-			</section>
-         <section>
+					<% if(currentUser === undefined || currentUser.username !== user.username){ %>
+							<section>
+			              <a id="createUser" href="/">Log In or Register to Become a Member</a><br/>
+			             </section>
+					 <% } else if (currentUser){ %>
+	  					  <section>
+							  <li id="createUser">
+							  <button><a class="fontSize" id="editUser" href="/users/<%=currentUser._id%>/edit">EDIT USER</a>
+							  </button>
+							  <button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button>
 
-				<ul>
-					<li>
-						<button><a class="fontSize" id="editUser" href="/users/<%=currentUser._id%>/edit">EDIT USER</a>
-						</button>
-						<button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button>
-					</li>
-					<li id="createUser">
-						<form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
-							<input  type="submit" value="DELETE USER"/>
-						</form>
-					</li>
-				</ul>
-			</section>
+							  <form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
+								  <input  type="submit" value="DELETE USER"/>
+							  </form>
+							  </li>
+						  </section>
+					  <% } %>
+		   </section>
 		</main>
 	</body>
 	<footer>

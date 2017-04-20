@@ -3,10 +3,20 @@
 	<head>
 		<% include ../partials/head %>
 	</head>
+	<div class="headerChick">
+		<img class="chicklets" src="/img/home.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/email.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/share.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/rss.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/chat.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/donate.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/ideas.png"></img>
+	</div>
 	<header>
 		<div class="subheader">
 		   <img class="picLogo" src="/img/SWMLogo.png"></img>
 		</div>
+
 	</header>
 	<body>
 		<div class="menu">
@@ -19,8 +29,7 @@
 			<% if(currentUser){ %>
 				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
 				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/">POINTS METER</a>
+				 <a class="menuLinks"href="/users">MEMBERS</a>
 			<% } %>
 		</div>
 		<div class="imgLogo" id="indexImage">

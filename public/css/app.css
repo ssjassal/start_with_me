@@ -35,9 +35,10 @@ nav{
 body{
    background-repeat: repeat-x;
    /*background-size: cover;*/
-   background-color: #E0DD1D;
+   background-color: #FFFC96;
    font-family: 'Macondo', cursive;
    /*width: 50%;*/
+   font-weight: 900;
 }
 
 main{
@@ -66,7 +67,8 @@ footer {
    height:15%;
    width:100%;
    background-image: url('/img/crayons.png');
-   background-size: 400px 200px;
+   background-clip: content-box;
+   background-size: 400px 150px;
    text-align: center;
    position: fixed;
 }
@@ -78,11 +80,16 @@ footer {
 .headerContent{
    opacity: 0.75;
 }
+
+.headerChick{
+   float: right;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
 .chicklets{
-   float: left;
-   height: 3%;
-   width: 3%;
-   margin-top: 0;
+   /*margin-bottom: 15%;*/
+   height: 25px;
+   width: 25px;
 }
 .picLogo{
    width: 15%;
@@ -112,7 +119,9 @@ footer {
    padding-left: 20px;
    /*padding-right: 5px;*/
 }
-
+.pipe2{
+   padding: 5px;
+}
 .navText{
    float: right;
    margin-top: 10px;
@@ -145,7 +154,7 @@ footer {
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 150px;
+   top: 205px;
    color: white;
    border-radius: 10px;
 }
@@ -289,8 +298,8 @@ margin-top: 50px;
    border-radius: 10px;
 }
 #footer-content{
-   margin-bottom: 30px;
-   bottom: 0;
+   color: #0AB6F7;
+   bottom: 0px;;
 }
 
 #indexImage{

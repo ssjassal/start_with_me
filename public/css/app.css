@@ -78,7 +78,12 @@ footer {
 .headerContent{
    opacity: 0.75;
 }
-
+.chicklets{
+   float: left;
+   height: 3%;
+   width: 3%;
+   margin-top: 0;
+}
 .picLogo{
    width: 15%;
    height: 15%;
@@ -110,6 +115,7 @@ footer {
 
 .navText{
    float: right;
+   margin-top: 10px;
 }
 
 .spacer{

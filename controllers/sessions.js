@@ -19,7 +19,7 @@ router.post('/', function(req, res){
           console.log('in IF');
           req.session.currentuser = foundUser;
           console.log(req.session.currentuser);
-          res.redirect('/users/show');
+          res.redirect('/');
        }else{
           console.log("doomed");
        }

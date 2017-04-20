@@ -34,7 +34,7 @@
             </li>
          <%}%>
 
-        <% if(currentUser){ %>
+         <% if(currentUser){ %>
             <li><a href="/users/<%=currentUser._id%>">MY ACCOUNT</a></li>
             <li>
                 <form action="/sessions?_method=DELETE" method="POST">

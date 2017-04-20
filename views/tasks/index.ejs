@@ -6,13 +6,24 @@
 	<body>
 		<header>
 			<div class="subheader">
+				<img class="picLogo2" src="/img/SWMLogo.png"></img>
 				<h1>List of Volunteer Activiites</h1>
-			</div>
-			<div class="menu">
-					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/">POINTS METER</a>
+				<div class="menuPage2">
+					<% if(currentUser === undefined){%>
+						<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+						<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+						<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+						<a class="menuLinks" href="/">DONATE</a>
+					<%}%>
+
+					<% if(currentUser){ %>
+						 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+						 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+						 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+						 <a class="menuLinks"href="/">POINTS METER</a>
+						 </form>
+					<% } %>
+				</div>
 			</div>
 		</header>
 		<main>
@@ -21,11 +32,11 @@
 					<h2>Current Activites</h2>
 					<% for(var i = 0; i < tasks.length; i++){ %>
 						<li>
-							<a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
-							By: <%=tasks[i].username%>
+							<h3><a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].title%></a>
+							By: <%=tasks[i].username%> </h3>
 						</li>
 					<% } %>
-					<li><button><a class="fontSize" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
+					<li><button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button></li>
 				</ul>
 			</div>
 		</main>

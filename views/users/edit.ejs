@@ -5,12 +5,22 @@
 	</head>
 	<header>
 		<div class="subheader">
-		<h1>Edit <%=user.name%>'s Info</h1>
-			<div class="menu">
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
+			<h1>Edit <%=user.name%>'s Info</h1>
+			<div class="menuPage2">
+				<% if(currentUser === undefined){%>
 					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-					<a class="menuLinks"href="/">POINTS METER</a>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">DONATE</a>
+				<%}%>
+
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/">POINTS METER</a>
+				<% } %>
 			</div>
 		</div>
 	</header>
@@ -27,7 +37,7 @@
 					<li><input class="field-style field-full align-none" type="text" name="school" placeholder="Current School" value="<%=user.school%>"/></li>
 					<li><input class="field-style field-full align-none" type="text" name="location" placeholder="Location" value="<%=user.location%>"/></li>
 					<li><input class="field-style field-full align-none" type="text" name="userImg" placeholder="Image URL" value="<%=user.userImg%>"/></li>
-					<li><input class="createUser" type="submit" value="UPDATE USER"/></li>
+					<li id="createUser"><input type="submit" value="UPDATE USER"/></li>
 				</ul>
 			</form>
 		</main>

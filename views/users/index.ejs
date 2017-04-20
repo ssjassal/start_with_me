@@ -5,14 +5,23 @@
 	</head>
 	<header>
 		<div class="subheader">
-			<h1>Users</h1>
-		</div>
-		<div class="menu">
-				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/">POINTS METER</a>
-		</div>
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
+			<h1>Start With Me Members</h1>
+			<div class="menuPage2">
+				<% if(currentUser === undefined){%>
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">POINTS METER</a>
+				<%}%>
+
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/">POINTS METER</a>
+				<% } %>
+			</div>
 	</header>
 	<body>
 		<main>
@@ -20,9 +29,12 @@
 				<h2>List of Users</h2>
 				<ul class="userIndex">
 					<% for(var i = 0; i < users.length; i++){ %>
-						<li>
-							<a class="fontSize" href="/users/<%=users[i]._id%>"><%=users[i].name%></a>
-						</li>
+						<div class="form-style-4 userCenter">
+
+								<img class="userProfile2" src="<%=users[i].userImg%>	"></img>
+								<h2><a href="/users/<%=users[i]._id%>"><%=users[i].name%></a></h2>
+							
+						</div>
 					<% } %>
 				</ul>
 			</div>

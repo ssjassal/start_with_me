@@ -20,13 +20,15 @@
 		<main class="form-style-9">
 			<h2>Task Attributes:</h2>
 			<form action="/tasks/<%=task._id%>?_method=PUT" method="post">
-				<input type="text" name="title" placeholder="Task Title" value="<%=currentUser.username%>"/><br>
-				<input type="text" name="title" placeholder="Task Title" value="<%=task.title%>"/><br>
-				<textarea name="desc" placeholder="Task Description"><%=task.desc%></textarea><br/>
-				<input type="text" name="location" placeholder="Location" value="<%=task.location%>"/><br>
-				<input type="text" name="points" placeholder="Points Value" value="<%=task.points%>"/><br>
-				<input type="text" name="taskImg" placeholder="Image URL" value="<%=task.taskImg%>"/><br>
-				<input type="submit" value="UPDATE ACTIVITY"/>
+				<ul>
+					<li><input class="field-style field-split align-left" type="text" name="username" placeholder="Task Title" value="<%=currentUser.username%>"/>
+					<input class="field-style field-split align-right" type="text" name="title" placeholder="Task Title" value="<%=task.title%>"/></li>
+					<li><input class="field-style field-split align-left"  type="text" name="points" placeholder="Points Value" value="<%=task.points%>"/>
+					<input class="field-style field-split align-right" type="text" name="location" placeholder="Location" value="<%=task.location%>"/></li>
+					<li><input class="field-style field-full align-none"  type="text" name="taskImg" placeholder="Image URL" value="<%=task.taskImg%>"/></li>
+					<li><textarea class="field-style" name="desc" placeholder="Task Description"><%=task.desc%></textarea><li>
+					<li><input type="submit" value="UPDATE ACTIVITY"/></li>
+				<ul>
 			</form>
 		</main>
 	</body>

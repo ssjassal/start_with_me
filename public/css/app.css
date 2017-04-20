@@ -87,6 +87,14 @@ footer {
    float: left;
    z-index: 1;
 }
+.picLogo2{
+   width: 10%;
+   height: 10%;
+   padding: 15px;
+   margin: 0;
+   float: left;
+   z-index: 1;
+}
 
 .imgLogo{
    position: relative;
@@ -128,11 +136,42 @@ footer {
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 150px;
+   top: 190px;
    color: white;
    border-radius: 10px;
 }
 
+.menuPage{
+   background-color: #CB005C;
+   align-items: center;
+   display: flex;
+   justify-content: space-around;
+   width: 50%;
+   height: 50px;
+   z-index: 1;
+   margin-left: 25%;
+   margin-bottom: 15%;
+   position: absolute;
+   top: 105px;
+   color: white;
+   border-radius: 10px;
+}
+
+.menuPage2{
+   background-color: #CB005C;
+   align-items: center;
+   display: flex;
+   justify-content: space-around;
+   width: 50%;
+   height: 50px;
+   z-index: 1;
+   margin-left: 25%;
+   margin-bottom: 15%;
+   position: absolute;
+   top: 170px;
+   color: white;
+   border-radius: 10px;
+}
 .menuLinks{
    color: white;
 }
@@ -142,6 +181,10 @@ footer {
    /*margin-right: 50%;*/
    display: flex;
    justify-content: center;
+}
+.userCenter{
+   display: flex;
+   align-items: center;
 }
 
 .subheader{
@@ -157,10 +200,27 @@ footer {
    width: 150px;
    border: 5px solid #04BAFF;
 }
+.userProfile2{
+   border-radius: 80px;
+   height:75px;
+   width: 75px;
+   border: 5px solid #04BAFF;
+}
+
+.taskProfile{
+   border-radius: 80px;
+   height:150px;
+   width: 150px;
+   border: 5px solid #04BAFF;
+}
+
+#byLine{
+margin-top: 50px;
+}
 
 #volunteer{
-   height:500px;
-   width: 550px;
+   height:515px;
+   width: 730px;
    border-radius: 10px;
    box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.35);
 }
@@ -176,7 +236,7 @@ footer {
    margin-left: 25%;
    margin-bottom: 15%;
    position: absolute;
-   top: 440px;
+   top: 550px;
    color: white;
    border-radius: 10px;
 }
@@ -271,4 +331,15 @@ footer {
 .form-style-9 ul li input[type="submit"]:hover {
     background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
     background-color: #28739E;
+}
+
+.form-style-4{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    background: #495C70;
+    padding: 15px;
+    border: 5px solid #53687E;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
 }

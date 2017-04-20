@@ -5,15 +5,24 @@
 	</head>
 	<header>
 		<div class="subheader">
-			<img class="picLogo" src="/img/SWMLogo.png"></img>
+		   <img class="picLogo" src="/img/SWMLogo.png"></img>
 		</div>
 	</header>
 	<body>
 		<div class="menu">
+			<% if(currentUser === undefined){%>
 				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
-				<a class="menuLinks"href="/">POINTS METER</a>
+				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+				<a class="menuLinks" href="/">DONATE</a>
+			<%}%>
+
+			<% if(currentUser){ %>
+				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/tasks">TASKS</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/users">USER</a> <span class="pipe">|</span>
+				 <a class="menuLinks"href="/">POINTS METER</a>
+			<% } %>
 		</div>
 		<div class="imgLogo" id="indexImage">
 			<img  src="http://www.dorchesterchildren.org/images/slideshow/group-of-children.jpg"></img>

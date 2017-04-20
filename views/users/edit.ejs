@@ -30,11 +30,11 @@
 			<% if(currentUser){ %>
 				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
 				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> 
+				 <a class="menuLinks"href="/users">MEMBERS</a>
 			<% } %>
 		</div>
 		<main>
-			<form class="form-style-9" action="/users/<%=user._id%>?_method=PUT" method="post">
+			<form class=" form form-style-9" action="/users/<%=user._id%>?_method=PUT" method="post">
 				<h2> Edit My Profile:</h2>
 				<ul>
 					<li><input class="field-style field-split align-left" type="text" name="name" placeholder="First and Last Name" value="<%=user.name%>"/>

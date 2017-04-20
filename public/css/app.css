@@ -39,6 +39,7 @@ body{
    font-family: 'Macondo', cursive;
    /*width: 50%;*/
    font-weight: 900;
+   font-size: 1.5em;
 }
 
 main{
@@ -290,13 +291,91 @@ footer {
 margin-top: 50px;
 }
 
-#volunteer{
+.form {
+-webkit-box-shadow: 0px 0px 15px 5px rgba(0, 185, 233, .75);
+box-shadow: 0px 0px 15px 5px rgba(0, 185, 233, .75);
+-webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+}
+
+.form:hover {
+-webkit-box-shadow: 0px 0px 15px 10px rgba(221, 130, 201, .75);
+box-shadow: 0px 0px 15px 10px rgba(221, 130, 201, .75);
+}
+/*Borrowed for text animation over image from http://www.cssscript.com/pure-css3-animated-text-overlay-on-hover/*/
+.volunteer{
+   cursor: pointer;
+   overflow: hidden;
+   -webkit-transition: all 300ms ease-out;
+   -moz-transition: all 300ms ease-out;
+   -o-transition: all 300ms ease-out;
+   -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+.volunteer .overbox {
+  background-color: #7EBAD1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  z-index: 100;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 791px;
+  height: 550px;
+  border-radius: 10px;
+  padding: 130px 20px;
+}
+.volunteer:hover .overbox { opacity: 1; }
+.volunteer .overtext {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(40px);
+  -webkit-transform: translateY(40px);
+}
+
+.volunteer .title {
+  font-size: 4em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+}
+
+.volunteer:hover .title,
+.volunteer:focus .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+}
+
+.volunteer .tagline {
+  font-size: 2.5em;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.volunteer:hover .tagline,
+.volunteer:focus .tagline {
+  opacity: 1;
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+}
+
+#volunteerPic{
    height:515px;
    width: 730px;
    border-radius: 10px;
    box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.35);
 }
-
 #indexSlide{
    background-color: #CB005C;
    align-items: center;
@@ -311,8 +390,8 @@ margin-top: 50px;
    top: 550px;
    color: white;
    border-radius: 10px;
-}
 
+}
 #footer-content{
    color: #0AB6F7;
    bottom: 0px;;

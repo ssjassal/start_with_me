@@ -15,27 +15,28 @@
 	<header>
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
-			<h1>Edit <%=user.name%>'s Info</h1>
+			<h2>Edit Info</h2>
 		</div>
 	</header>
-	<body>
-		<div class="menuPage2">
-			<% if(currentUser === undefined){%>
-				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">DONATE</a>
-			<%}%>
-
-			<% if(currentUser){ %>
-				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a>
-			<% } %>
-		</div>
+	<body  class="container">
 		<main>
+			<div class="menuPage2">
+				<% if(currentUser === undefined){%>
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">DONATE</a>
+				<%}%>
+
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">MEMBERS</a>
+				<% } %>
+			</div>
+
 			<form class=" form form-style-9" action="/users/<%=user._id%>?_method=PUT" method="post">
-				<h2> Edit My Profile:</h2>
+				<h2> <%=user.name%>'s Profile:</h2>
 				<ul>
 					<li><input class="field-style field-split align-left" type="text" name="name" placeholder="First and Last Name" value="<%=user.name%>"/>
 					<input class="field-style field-split align-right" type="text" name="email" placeholder="Email" value="<%=user.email%>"/></li>

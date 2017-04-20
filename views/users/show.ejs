@@ -15,31 +15,32 @@
 	<header>
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
-			<h1>Member Profile</h1>
+			<h2>Member</h2>
 		</div>
 	</header>
-	<body>
-		<div class="menuPage2">
-			<% if(currentUser === undefined){%>
-				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">DONATE</a>
-			<%}%>
+	<body  class="container">
+		<main >
+			<div class="menuPage2">
+				<% if(currentUser === undefined){%>
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">DONATE</a>
+				<%}%>
 
-			<% if(currentUser){ %>
-				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a>
-				 </form>
-			<% } %>
-		</div>
-		<main class="form-style-9">
-			<section>
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">MEMBERS</a>
+					 </form>
+				<% } %>
+			</div>
+
+			<section class="form-style-9">
 			   <div class="userPic">
 				 <li><img class="userProfile" src="<%=user.userImg%>"></img></li>
 			   </div>
-			   <h2>Member Information:</h2>
+			   <h2>Member Profile Information:</h2>
 			   <ul>
 					<h5><li>Name: <%=user.name%>
 			   	Email: <%=user.email%></li>
@@ -52,35 +53,35 @@
 				  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
 				  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
 				    50% Complete
-			  </div>
-</div>
-			</section>
-		   <section>
-			   <h2>Volunteer Activites Sponsored By: <%=user.name%></h2>
-			   <ul>
-				   <% for(var i = 0; i < currentUser.tasks.length; i++){ %>
-					  <li><h3><a  href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></h3></li>
-						  <li>
-  					<% } %>
-				</ul>
-					<% if(currentUser === undefined || currentUser.username !== user.username){ %>
-							<section>
-			              <a id="createUser" href="/">Log In or Register to Become a Member</a><br/>
-			             </section>
-					 <% } else if (currentUser){ %>
-	  					  <section>
-							  <li id="createUser">
-							  <button><a class="fontSize" id="editUser" href="/users/<%=currentUser._id%>/edit">EDIT USER</a>
-							  </button>
-							  <button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button>
+			  		</div>
+		  		</div>
+			   <section>
+				   <h2>Volunteer Activites Sponsored By: <%=user.name%></h2>
+				   <ul>
+					   <% for(var i = 0; i < currentUser.tasks.length; i++){ %>
+						  <li><h3><a  href="/tasks/<%=currentUser.tasks[i]._id%>"><%=currentUser.tasks[i].title%></a></h3></li>
+							  <li>
+	  					<% } %>
+					</ul>
+						<% if(currentUser === undefined || currentUser.username !== user.username){ %>
+								<section>
+				              <a id="createUser" href="/">Log In or Register to Become a Member</a><br/>
+				             </section>
+						 <% } else if (currentUser){ %>
+		  					  <section>
+								  <li id="createUser">
+								  <button><a class="fontSize" id="editUser" href="/users/<%=currentUser._id%>/edit">EDIT USER</a>
+								  </button>
+								  <button><a class="fontSize" id="editUser" href="/tasks/new">CREATE NEW ACTIVITY</a></button>
 
-							  <form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
-								  <input  type="submit" value="DELETE USER"/>
-							  </form>
-							  </li>
-						  </section>
-					  <% } %>
-		   </section>
+								  <form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
+									  <input  type="submit" value="DISABLE ACCOUNT"/>
+								  </form>
+								  </li>
+							  </section>
+						  <% } %>
+		   	</section>
+			</section>
 		</main>
 		<div class="spacer"></div>
 	</body>

@@ -66,7 +66,7 @@ router.delete('/:id', function(req, res){
 				}
 			},
 			function(err, data){
-				res.redirect('/users');
+				res.redirect('/');
 			}
 		);
 	});

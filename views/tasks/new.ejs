@@ -14,27 +14,27 @@
 	</div>
 	<header>
 		<div class="subheader">
-			<h1>Create New Activity</h1>
+			<img class="picLogo2" src="/img/SWMLogo.png"></img>
+			<h2>New Activity</h2>
 		</div>
 	</header>
-	<body>
-		<div class="menuPage4">
-			<% if(currentUser === undefined){%>
-				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">DONATE</a>
-			<%}%>
-
-			<% if(currentUser){ %>
-				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/">POINTS METER</a>
-				 </form>
-			<% } %>
-		</div>
+	<body  class="container">
 		<main>
+			<div class="menuPage2">
+				<% if(currentUser === undefined){%>
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">DONATE</a>
+				<%}%>
+
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">MEMBERS</a>
+				<% } %>
+			</div>
+
 			<form class="form form-style-9" action="/tasks" method="POST">
 				<h2>New Activity Information:</h2>
 				<ul>

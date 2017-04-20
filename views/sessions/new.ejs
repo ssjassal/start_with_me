@@ -15,34 +15,36 @@
     <header>
       <div class="subheader">
         <img class="picLogo2" src="/img/SWMLogo.png"></img>
-        <h1>Log In</h1>
+        <h2>Log In</h2>
 
      </div>
     </header>
-    <body>
-      <div class="menuPage3">
-            <% if(currentUser === undefined){%>
-                <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-                <a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-                <a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-                <a class="menuLinks" href="/">DONATE</a>
-            <%}%>
+    <body class="container">
+      <main>
+         <div class="menuPage">
+               <% if(currentUser === undefined){%>
+                   <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+                   <a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+                   <a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+                   <a class="menuLinks" href="/">DONATE</a>
+               <%}%>
 
-            <% if(currentUser){ %>
-                <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-                <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-              <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-                <a class="menuLinks"href="/users/points">POINTS METER</a>
-                </form>
-            <% } %>
-      </div>
-      <form class="form form-style-9"action="/sessions" method="POST">
-         <ul>
-            <li><input class="field-style field-split align-left" type="text" name="username" placeholder="User Name"/>
-            <input class="field-style field-split align-right" type="password" name="password" placeholder="Password"/></li>
-            <li id="createUser"><input type="submit" value="Log In" /></li>
-            <li id="createUser">Not a member? <a href="/users/new"> Click here to register</a></li>
-         </ul>
-      </form>
+               <% if(currentUser){ %>
+                   <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+                   <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+                 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
+                   <a class="menuLinks"href="/users/points">POINTS METER</a>
+                   </form>
+               <% } %>
+         </div>
+         <form class="form form-style-9"action="/sessions" method="POST">
+            <ul>
+               <li><input class="field-style field-split align-left" type="text" name="username" placeholder="User Name"/>
+               <input class="field-style field-split align-right" type="password" name="password" placeholder="Password"/></li>
+               <li id="createUser"><input type="submit" value="Log In" /></li>
+               <li id="createUser">Not a member? <a href="/users/new"> Click here to register</a></li>
+            </ul>
+         </form>
+      </main>
     </body>
 </html>

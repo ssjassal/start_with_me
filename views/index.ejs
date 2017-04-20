@@ -18,35 +18,40 @@
 		</div>
 
 	</header>
-	<body>
-		<div class="menu">
-			<% if(currentUser === undefined){%>
-				<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
-				<a class="menuLinks" href="/">DONATE</a>
-			<%}%>
+	<body  class="container">
+		<main>
 			<% if(currentUser){ %>
-				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a>
+				<div class="menu2">
 			<% } %>
-		</div>
-		<div class="imgLogo" id="indexImage">
-			<img  src="http://www.dorchesterchildren.org/images/slideshow/group-of-children.jpg"></img>
-		</div>
-		<div class="animation-target" id="indexSlide">
-			<div class="volunteer">
-				<img id="volunteerPic" src="/img/Volunteer.png">
-			  <div class="overbox">
-			    <div class="title overtext"> StartWithMe.org </div>
-			    <div class="tagline overtext"> Start With Me is an Not For Profit organziation aimed at enabling children to provide kindness and help to their communities in the form of voluteering. </div>
-			  </div>
+			<% if(!currentUser){ %>
+				<div class="menu">
+			<% } %>
+
+				<% if(currentUser === undefined){%>
+					<a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">FOUNDATION</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">GALLERY</a> <span class="pipe">|</span>
+					<a class="menuLinks" href="/">DONATE</a>
+				<%}%>
+				<% if(currentUser){ %>
+					 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
+					 <a class="menuLinks"href="/users">MEMBERS</a>
+				<% } %>
 			</div>
-
-
-		</div>
-
+			<div  id="indexImage">
+				<img class="imgLogo" src="http://www.dorchesterchildren.org/images/slideshow/group-of-children.jpg"></img>
+			</div>
+			<div class="animation-target" id="indexSlide">
+				<div class="volunteer">
+					<img id="volunteerPic" src="/img/Volunteer.png">
+				  <div class="overbox">
+				    <div class="title overtext"> StartWithMe.org </div>
+				    <div class="tagline overtext"> Start With Me is an Not For Profit organziation aimed at enabling children to provide kindness and help to their communities in the form of voluteering. </div>
+				  </div>
+				</div>
+			</div>
+		</main>
 	</body>
 	<footer>
 		<% include ../partials/footer %>

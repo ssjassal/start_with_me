@@ -3,6 +3,15 @@
 	<head>
 		<% include ../../partials/head %>
 	</head>
+	<div class="headerChick">
+		<img class="chicklets" src="/img/home.png"></img><span class="pipe2">|</span>
+		<img class="chicklets picSize" src="/img/email.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/share.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/rss.png"></img><span class="pipe2">|</span>
+		<img class="chicklets" src="/img/chat.png"></img><span class="pipe2">|</span>
+		<img class="chicklets picSize3" src="/img/donate.png"></img><span class="pipe2">|</span>
+		<img class="chicklets picSize3" src="/img/ideas.png"></img>
+	</div>
 	<header>
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
@@ -21,13 +30,12 @@
 			<% if(currentUser){ %>
 				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
 				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/">POINTS METER</a>
+				 <a class="menuLinks"href="/users">MEMBERS</a>
 			<% } %>
 		</div>
-		<main class="form-style-9">
-			<h2>Task Attributes:</h2>
-			<form action="/tasks/<%=task._id%>?_method=PUT" method="post">
+		<main>
+			<form  class="form-style-9" action="/tasks/<%=task._id%>?_method=PUT" method="post">
+				<h2>Task Attributes:</h2>
 				<ul>
 					<li><input class="field-style field-split align-left" type="text" name="username" placeholder="Task Title" value="<%=currentUser.username%>"/>
 					<input class="field-style field-split align-right" type="text" name="title" placeholder="Task Title" value="<%=task.title%>"/></li>
@@ -39,6 +47,7 @@
 				<ul>
 			</form>
 		</main>
+		<div class="spacer"></div>
 	</body>
 	<footer>
 		<% include ../../partials/footer %>

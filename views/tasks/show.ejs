@@ -6,7 +6,7 @@
 	<header>
 		<div class="subheader">
 			<img class="picLogo2" src="/img/SWMLogo.png"></img>
-			<h1><%=task.title%></h1>
+			<h1>Volunteer Activity Profile</h1>
 			<small id="byLine">Sponsored By: <a href="/users/<%=currentUser._id%>"><%=currentUser.name%></a></small>
 	</header>
 	<body>
@@ -21,28 +21,38 @@
 			<% if(currentUser){ %>
 				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
 				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/">POINTS METER</a>
+				 <a class="menuLinks"href="/users">MEMBERS</a> 
 				 </form>
 			<% } %>
 		</div>
 		<main>
 			<div class="form-style-9">
-				<% if(currentUser === undefined){ %>
+				<div class="userPic">
 					<li><img class="taskProfile" src="<%=task.taskImg%>"></img></li>
-					<li><font size="3"><%=task.description%></font></li>
-
-
-				<section>
-			    	<li id="createUser">
-						<form action="/tasks/<%=task._id%>?_method=DELETE" method="post">
-			        		<input type="submit" value="DELETE ACTIVITY"/>
-			    		</form>
-				   	<button>
-							<a class="fontSize" id="editUser"href="/tasks/<%=task._id%>/edit">EDIT ACITIVITY</a>
-						</button>
-					</li>
-				</section>
+				</div>
+				<h2>Activity Information:</h2>
+				<ul>
+					<h5><li>Title: <%=task.title%>
+					Points Value: <%=task.points%></li>
+					<li>Location: <%=task.location%></li>
+					<li>Description: <font size="3"><%=task.description%></font></li></h5>
+				</ul>
+				<% if(currentUser === undefined || currentUser.username !== user.username){ %>
+					<section>
+					  <a id="createUser" href="/">Log In or Register to Become a Member</a><br/>
+				 	</section>
+				<% } else if (currentUser){ %>
+					<section>
+				    	<li id="createUser">
+							<form action="/tasks/<%=task._id%>?_method=DELETE" method="post">
+				        		<input type="submit" value="DELETE ACTIVITY"/>
+				    		</form>
+					   	<button>
+								<a class="fontSize" id="editUser"href="/tasks/<%=task._id%>/edit">EDIT ACITIVITY</a>
+							</button>
+						</li>
+					</section>
+				<% } %>
 			</div>
 		</main>
 	</body>

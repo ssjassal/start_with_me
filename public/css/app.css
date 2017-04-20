@@ -112,6 +112,9 @@ footer {
    float: right;
 }
 
+.spacer{
+   height: 300px;
+}
 .fontSize{
    /*-moz-box-shadow: inset 0px 1px 0px 0px #04BAFF;
    -webkit-box-shadow: inset 0px 1px 0px 0px #04BAFF;
@@ -382,6 +385,8 @@ margin-top: 50px;
 .form-style-9{
     max-width: 650px;
     background: #FAFAFA;
+    background-image: url('/img/paper.png');
+    background-size: 400px 650px;
     padding: 30px;
     margin: 50px auto;
     box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);

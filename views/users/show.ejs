@@ -21,8 +21,7 @@
 			<% if(currentUser){ %>
 				 <a class="menuLinks" href="/">HOME</a> <span class="pipe">|</span>
 				 <a class="menuLinks"href="/tasks">ACTIVITIES</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users">MEMBERS</a> <span class="pipe">|</span>
-				 <a class="menuLinks"href="/users/points">POINTS METER</a>
+				 <a class="menuLinks"href="/users">MEMBERS</a> 
 				 </form>
 			<% } %>
 		</div>
@@ -32,12 +31,14 @@
 				 <li><img class="userProfile" src="<%=user.userImg%>"></img></li>
 			   </div>
 			   <h2>Member Information:</h2>
-			   <ul><h5><li>Name: <%=user.name%></li>
-			   <li>Email: <%=user.email%></li>
-			   <li>Parent or Guardian: <%=user.parent%></li>
-			   <li>Age: <%=user.age%></li>
-			   <li>School: <%=user.school%></li>
-			   <li>Location: <%=user.location%></li></h5></ul>
+			   <ul>
+					<h5><li>Name: <%=user.name%>
+			   	Email: <%=user.email%></li>
+			   	<li>Parent or Guardian: <%=user.parent%>
+			   	Age: <%=user.age%></li>
+			   	<li>School: <%=user.school%>
+			   	Location: <%=user.location%></li></h5>
+				</ul>
 				<div class="progress">
 				  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
 				  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
@@ -72,6 +73,7 @@
 					  <% } %>
 		   </section>
 		</main>
+		<div class="spacer"
 	</body>
 	<footer>
 		<% include ../../partials/footer %>

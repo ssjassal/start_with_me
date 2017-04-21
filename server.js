@@ -1,3 +1,4 @@
+//=========================REQUIRED MODULES=========================
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
@@ -7,6 +8,7 @@ var session = require('express-session');
 var bcrypt = require('bcrypt');
 var validator = require('validator');
 
+//=========================VARIABLES=========================
 var port = process.env.PORT || 8080;
 var mongoDBURI = process.env.MONGODB_URI 	|| 'mongodb://localhost:27017/swmDB'
 
@@ -14,6 +16,7 @@ var sessionsController = require('./controllers/sessions.js');
 var usersController = require('./controllers/users.js');
 var tasksController = require('./controllers/tasks.js');
 
+//=========================MIDDLE WARE=========================
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(session({
@@ -27,12 +30,7 @@ app.use('/sessions', sessionsController);
 app.use('/users', usersController);
 app.use('/tasks', tasksController);
 
-app.get('/', function(req, res){
-	res.render('index.ejs', {
-		currentUser: req.session.currentuser
-	});
-});
-
+//=========================DB CONNECTION=========================
 mongoose.connect(mongoDBURI);
 
 mongoose.connection.once('open', function(){
@@ -41,4 +39,11 @@ mongoose.connection.once('open', function(){
 
 app.listen(port, function(){
 	console.log('listening....');
+});
+
+//=========================GET ROUTES=========================
+app.get('/', function(req, res){
+	res.render('index.ejs', {
+		currentUser: req.session.currentuser
+	});
 });

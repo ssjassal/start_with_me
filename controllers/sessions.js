@@ -1,15 +1,19 @@
+//=========================REQUIRED MODULES=========================
+
 var express = require('express');
 var router = express.Router();
 var User = require('../models/users.js');
 var bcrypt = require('bcrypt');
 var session = require('express-session');
 
+//=========================GET ROUTES=========================
 router.get('/new', function(req, res){
     res.render('sessions/new.ejs',{
       currentUser: req.session.currentuser
    });
 });
 
+//=========================POST ROUTES=========================
 router.post('/', function(req, res){
     User.findOne({ username: req.body.username }, function(err, foundUser){
         console.log(req.body.username + '+' + req.body.password + '+' + foundUser + '+');
@@ -25,7 +29,7 @@ router.post('/', function(req, res){
        }
     });
 });
-
+//=========================DELETE ROUTES=========================
 router.delete('/', function(req, res){
     console.log('In Logout Route');
     req.session.destroy();

@@ -1,9 +1,11 @@
+//=========================REQUIRED MODULES=========================
 var express = require('express');
 var router = express.Router();
 var Task = require('../models/tasks.js');
 var User = require('../models/users.js');
 var session = require('express-session');
 
+//=========================GET ROUTES=========================
 router.get('/', function(req, res){
 	Task.find({}, function(err, foundTasks){
 		res.render('tasks/index.ejs', {
@@ -50,7 +52,7 @@ router.get('/:id/edit', function(req, res){
 	});
 });
 
-
+//=========================POST/PUT ROUTES=========================
 router.put('/:id', function(req, res){
     Task.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, updatedTask){
         User.findOne({ 'tasks._id' : req.params.id }, function(err, foundUser){
@@ -87,6 +89,7 @@ router.post('/', function(req, res){
     });
 });
 
+//=========================DELETE=========================
 router.delete('/:id', function(req, res){
     Task.findByIdAndRemove(req.params.id, function(err, foundTask){
         User.findOne({'tasks._id':req.params.id}, function(err, foundUser){

@@ -1,5 +1,8 @@
+//=========================REQUIRED MODULES=========================
 var mongoose = require('mongoose');
 var User = require('./users.js');
+
+//=========================SCHEMA=========================
 var taskSchema = mongoose.Schema({
 	title:{type: String, required: true},
 	location: String,

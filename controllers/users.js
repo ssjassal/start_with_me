@@ -1,3 +1,4 @@
+//=========================REQUIRED MODULES=========================
 var express = require('express');
 var User = require('../models/users.js');
 var Task = require('../models/tasks.js');
@@ -5,6 +6,7 @@ var router = express.Router();
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 
+//=========================GET ROUTES=========================
 router.get('/', function(req, res){
 	User.find({}, function(err, foundUsers){
 		res.render('users/index.ejs', {
@@ -45,7 +47,7 @@ router.put('/:id', function(req, res){
 	});
 });
 
-
+//=========================PUT/POST ROUTES=========================
 router.post('/', function(req, res){
 	req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 	User.create(req.body, function(err, createdUser){
@@ -53,6 +55,7 @@ router.post('/', function(req, res){
 	});
 });
 
+//=========================DELETE ROUTES=========================
 router.delete('/:id', function(req, res){
 	User.findByIdAndRemove(req.params.id, function(err, foundUser){
 		var taskIds = [];
@@ -71,4 +74,5 @@ router.delete('/:id', function(req, res){
 		);
 	});
 });
+
 module.exports = router;
